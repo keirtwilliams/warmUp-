@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //() function like this is a anonymous functions.
+
+//1
+ const getRestockMessage = () => {
+    return "Time to restock the main tub!";
+ };
+ console.log(getRestockMessage());
+
+ //2
+ const calculateTingiRevenue = (piecesSold) => {
+    return piecesSold * 5;
+ }
+ console.log(calculateTingiRevenue(15));
+
+ //3
+const getProfit = (totalSales, ingredientCost) => {
+  return totalSales - ingredientCost;
+}
+console.log(getProfit(500,320));
+
+//4
+const dailyProduction = [50, 65, 40, 80, 55];
+  const mapped = dailyProduction.map((x) => x * 5);
+  console.log(mapped);
+
+  //5
+  const stores = [
+  { name: "Aling Nena's", ordered: 45 },
+  { name: "Kuya Jun's", ordered: 15 },
+  { name: "Tita Baby's", ordered: 60 }
+];
+ const result = stores.filter((store) => store.ordered > 30);
+
+ console.log(result);
+    </script>
+</body>
+</html>
