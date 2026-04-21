@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM & Template Literals</title>
+</head>
+<body>
+    <div id="welcome-container"></div>
+    
+    <div id="order-container"></div>
+    
+    <ul id="porter-list"></ul>
+    
+    <div>
+        <input type="text" id="status-input" placeholder="Enter rescue status">
+        <button id="update-btn">Update Status</button>
+        <p id="status-display"></p>
+    </div>
+
+    <script>
+
+        const renderWelcomeMessage = (adminName) => {
+            const welcomeForm = document.getElementById("welcome-container");
+               welcomeForm.textContent = `Welcome back to the Team Rescue Iloilo Dashboard, ${adminName}! `
+        }   
+        renderWelcomeMessage("Admin");
+
+        const renderOrderSummary = (quantity, pricePerPiece) => {
+            const orderContainer = document.getElementById("order-container");
+               orderContainer.innerHTML = `
+                      <h3>Graham Balls Order</h3>
+                      <p>You ordered ${quantity} pieces at ₱${pricePerPiece} each.</p>
+                      <p><strong>Total Due: ${quantity + pricePerPiece}</strong></p>
+               `
+        }
+        renderOrderSummary(12,5);
+
+
+        const availablePorters = [
+  { name: "Mang Jun", capacity: "15kg" },
+  { name: "Kuya Nilo", capacity: "20kg" },
+  { name: "Tonyo", capacity: "10kg" }
+];
+
+const renderPorterList = (portersArray) => {
+     document.getElementById("porter-list").innerHTML = portersArray.map(porter =>
+      `<li>${porter.name} - Max Load: ${porter.capacity}</li>`).join('');
+};
+
+renderPorterList(availablePorters); 
+  
+
+    const updateBtn = document.getElementById("update-btn");
+   
+    updateBtn.addEventListener("click", () => {
+    const input = document.getElementById("status-input").value;
+    const para = document.getElementById("status-display");
+
+        para.textContent = `Latest Update: ${input} `
+    });
+
+    
+    </script>
+</body>
+</html>
