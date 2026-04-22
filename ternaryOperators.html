@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternary & DOM Practice</title>
+</head>
+<body>
+    <div id="porter-status"></div>
+    
+    <ul id="dog-list"></ul>
+    
+    <div>
+        <input type="number" id="load-input" placeholder="Enter bag weight (kg)">
+        <button id="check-load-btn">Check Load</button>
+        <p id="load-display"></p>
+    </div>
+
+    <script>
+        // Write your solutions here
+
+       const checkStock = (quantity) => 
+            quantity > 20 ? "Suffecient Stock" : "Time to Restock";
+       console.log(checkStock(15));
+
+
+       const renderPorterStatus = (name,isAvailable) => {
+           const porterStats = document.getElementById("porter-status");
+                porterStats.textContent = `${name} is currently ${isAvailable ? "Available" : "On a Hike"}`
+       }
+       renderPorterStatus("Kuya Nilo", true);
+
+       const calculateTotal = (quantity) => 
+       quantity > 10 ? quantity * 4 : quantity * 5 ;
+       console.log(calculateTotal(12));
+
+       const rescues = [
+        { name: "Bantay", isHealthy: true},
+        { name: "Brownie", isHealthy: false},
+        { name: "Whitey", isHealthy: true}
+       ];
+       
+       const renderDogList = (rescues) => {
+        const dogList = document.getElementById("dog-list");
+           dogList.innerHTML = rescues.map(rescuesMap => 
+                    `<li>${rescuesMap.name} - Status: ${rescuesMap.isHealthy ? "Ready for Adoption" : "Need Meds"}</li>`).join('');
+       }
+         renderDogList(rescues);
+
+         const loadDisplay = document.getElementById("load-display");
+         const button = document.getElementById("check-load-btn");
+             button.addEventListener("click", () => {
+                const loadInput = Number(document.getElementById("load-input").value);
+                loadDisplay.textContent = loadInput > 15 ? `Warning: ${loadInput}kg is too heavy...` : `${loadInput}kg is accepted.`
+             });
+    </script>
+</body>
+</html>
