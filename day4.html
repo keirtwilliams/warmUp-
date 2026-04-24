@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+         
+         const student = {
+            Name: "Keirt William",
+            Course: "BSIT",
+            Age: 22,
+            isCoding: true
+         };
+
+           const {Name,Age,Course,isCoding} = student;
+
+           console.log(`${Name} - ${Age} || ${Course} - ${isCoding} `);
+
+
+           const thesis = {
+            title: "bla bla",
+            client: {
+                orgName: "Team Rescue Iloilo"
+            }
+           }
+
+            const {client: {orgName }} = thesis;
+            console.log(orgName);
+       
+
+         
+              </script>
+</body>
+</html>
