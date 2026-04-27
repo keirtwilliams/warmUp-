@@ -6,8 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-
-    <script>
+              <div id="user">
+              </div>
+                 <script>
          
          const student = {
             Name: "Keirt William",
@@ -27,12 +28,42 @@
                 orgName: "Team Rescue Iloilo"
             }
            }
-
+                   //nested object
             const {client: {orgName }} = thesis;
             console.log(orgName);
        
 
          
+             const apiResponse = {
+                data: "success"
+             }
+             const {data:serverMessage} = apiResponse;
+
+             console.log(serverMessage);
+
+             const userSettings = {
+                theme: "dark"
+             }
+
+             const {theme, notifications} = userSettings;
+             console.log(theme);
+
+             const systemUser = {
+                username: "xDev",
+                role: "Software Engineering",
+                status: "Active"
+             }
+
+             const renderBadge = ({ username, role, status }) => {
+               return ` <h1>${username}</h1>
+                           <p>${role}</p>
+                           <p>${status}</p>               
+               `
+                
+             };
+                const userStats = document.getElementById("user");
+                userStats.innerHTML =  renderBadge(systemUser);
+             
               </script>
 </body>
-</html>
+</html> 
